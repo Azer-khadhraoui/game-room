@@ -73,12 +73,13 @@
         <?php endfor; ?>
     </table>
 
+    <form method="post">
+        <button type="submit" name="new_game">Play New Game</button>
+    </form>
+
     <?php if ($winner !== null): ?>
         <h2>Le gagnant est : <?php echo $winner; ?></h2>
         <?php session_destroy(); ?>
-        <form method="post">
-            <button type="submit" name="new_game">Play Another Game</button>
-        </form>
     <?php endif; ?>
 </body>
 </html>
