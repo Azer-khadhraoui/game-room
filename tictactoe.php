@@ -18,6 +18,12 @@
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['new_game'])) {
+            session_destroy();
+            header("Location: " . $_SERVER['PHP_SELF']);
+            exit;
+        }
+
         $index = $_POST['index'];
         if ($_SESSION['board'][$index] === '') {
             $_SESSION['board'][$index] = $_SESSION['turn'];
@@ -70,6 +76,9 @@
     <?php if ($winner !== null): ?>
         <h2>Le gagnant est : <?php echo $winner; ?></h2>
         <?php session_destroy(); ?>
+        <form method="post">
+            <button type="submit" name="new_game">Play Another Game</button>
+        </form>
     <?php endif; ?>
 </body>
 </html>
