@@ -91,8 +91,8 @@ $draw = !$winner && !in_array('', $_SESSION['board']);
             <form method="post" style="display: inline-block;">
                 <button type="submit" name="new_game" class="new-game-button">Play New Game</button>
             </form>
-            <p class="developer">Developed by Azer Khadhraoui</p>
         </div>
     </div>
+    <p class="developer">Developed by Azer Khadhraoui</p>
 </body>
 </html>
