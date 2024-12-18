@@ -8,6 +8,7 @@
     <style>
         .snake-container {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -16,11 +17,28 @@
             border: 1px solid #000;
             background-color: #f0f0f0;
         }
+        .home-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .home-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <div class="snake-container">
         <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <a href="index.html" class="home-button">Return to home page</a>
     </div>
     <script src="snake.js"></script>
 </body>

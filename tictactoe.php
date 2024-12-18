@@ -55,8 +55,27 @@ $draw = !$winner && !in_array('', $_SESSION['board']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .home-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
+    <a href="index.html" class="home-button">Return to home page</a>
     <div class="container">
         <h1>Tic-Tac-Toe</h1>
         <?php if ($winner === null && !$draw): ?>

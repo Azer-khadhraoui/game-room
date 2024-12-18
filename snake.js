@@ -1,5 +1,6 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
+const scoreElement = document.getElementById("score");
 
 const box = 20;
 const canvasSize = 400;
@@ -82,9 +83,7 @@ function draw() {
 
     snake.unshift(newHead);
 
-    ctx.fillStyle = "white";
-    ctx.font = "45px Changa one";
-    ctx.fillText(score, 2 * box, 1.6 * box);
+    scoreElement.innerHTML = "Score: " + score;
 }
 
 let game = setInterval(draw, 100);
