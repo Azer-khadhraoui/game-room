@@ -54,38 +54,7 @@ $draw = !$winner && !in_array('', $_SESSION['board']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            text-align: center;
-        }
-        table {
-            margin: 0 auto;
-            border-collapse: collapse;
-        }
-        td {
-            width: 60px;
-            height: 60px;
-            text-align: center;
-            font-size: 24px;
-            border: 1px solid #000;
-        }
-        button {
-            width: 100%;
-            height: 100%;
-            font-size: 24px;
-        }
-        .winner {
-            background-color: #90EE90;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -118,9 +87,12 @@ $draw = !$winner && !in_array('', $_SESSION['board']);
             <?php endfor; ?>
         </table>
 
-        <form method="post">
-            <button type="submit" name="new_game">Play New Game</button>
-        </form>
+        <div class="footer">
+            <form method="post" style="display: inline-block;">
+                <button type="submit" name="new_game" class="new-game-button">Play New Game</button>
+            </form>
+            <p class="developer">Developed by Azer Khadhraoui</p>
+        </div>
     </div>
 </body>
 </html>
