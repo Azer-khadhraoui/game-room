@@ -30,12 +30,20 @@
             font-size: 24px;
             cursor: pointer;
             border-radius: 5px;
-            transition: transform 0.3s;
+            transition: transform 0.3s, background-color 0.3s;
         }
         .memory-card.flipped {
             background-color: #fff;
             color: #007BFF;
             transform: rotateY(180deg);
+        }
+        .memory-card.matched-player1 {
+            background-color: #28a745;
+            color: #fff;
+        }
+        .memory-card.matched-player2 {
+            background-color: #dc3545;
+            color: #fff;
         }
         .home-button {
             position: fixed;
@@ -53,12 +61,50 @@
         .home-button:hover {
             background-color: #0056b3;
         }
+        .scoreboard {
+            display: flex;
+            justify-content: space-between;
+            width: 400px;
+            margin-bottom: 20px;
+        }
+        .score, .current-player, .winner-message {
+            font-size: 18px;
+            color: #333;
+        }
+        .winner-message {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #007BFF;
+        }
+        .new-game-button {
+            margin-top: 20px;
+            width: 150px;
+            height: 70px;
+            padding: 10px   20px;
+            font-size: 16px;
+            border:  none;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            
+        }
+        .new-game-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <a href="index.html" class="home-button">Return to home page</a>
     <div class="memory-container">
+        <div class="scoreboard">
+            <div class="score" id="player1Score">Player 1: 0</div>
+            <div class="score" id="player2Score">Player 2: 0</div>
+        </div>
+        <div class="current-player" id="currentPlayer">Current Player: 1</div>
         <div class="memory-grid" id="memoryGrid"></div>
+        <div class="winner-message" id="winnerMessage" style="display: none;"></div>
+        <button class="new-game-button" onclick="startNewGame()">Play New Game</button>
     </div>
     <script src="memory.js"></script>
 </body>
