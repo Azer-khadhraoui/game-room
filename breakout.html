@@ -32,6 +32,11 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+            text-align: center;
+            line-height: 60px; 
+            text-decoration: none; 
+            width: 100px;
+            height: 100px;
         }
         .home-button:hover {
             background-color: #0056b3;
@@ -40,7 +45,7 @@
 </head>
 <body>
     <div class="breakout-container">
-        <button class="home-button">Home</button>
+        <a href="index.html" class="home-button">Home</a>
         <canvas id="breakoutCanvas" width="800" height="400"></canvas>
     </div>
     <script src="breakout.js"></script>

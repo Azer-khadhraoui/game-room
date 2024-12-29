@@ -11,8 +11,8 @@ let y = canvas.height - 30;
 let dx = 2;
 let dy = -2;
 
-const brickRowCount = 3;
-const brickColumnCount = 5;
+const brickRowCount = 5; // Augmenter le nombre de lignes de briques
+const brickColumnCount = 9; // Augmenter le nombre de colonnes de briques
 const brickWidth = 75;
 const brickHeight = 20;
 const brickPadding = 10;
@@ -29,6 +29,7 @@ for (let c = 0; c < brickColumnCount; c++) {
 
 let rightPressed = false;
 let leftPressed = false;
+let lives = 5;
 
 document.addEventListener('keydown', keyDownHandler);
 document.addEventListener('keyup', keyUpHandler);
@@ -97,11 +98,18 @@ function collisionDetection() {
     }
 }
 
+function drawLives() {
+    context.font = "16px Arial";
+    context.fillStyle = "#0095DD";
+    context.fillText("Lives: " + lives, canvas.width - 65, 20);
+}
+
 function draw() {
     context.clearRect(0, 0, canvas.width, canvas.height);
     drawBricks();
     drawBall();
     drawPaddle();
+    drawLives();
     collisionDetection();
 
     if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
@@ -113,7 +121,17 @@ function draw() {
         if (x > paddleX && x < paddleX + paddleWidth) {
             dy = -dy;
         } else {
-            document.location.reload();
+            lives--;
+            if (!lives) {
+                alert("GAME OVER");
+                document.location.reload();
+            } else {
+                x = canvas.width / 2;
+                y = canvas.height - 30;
+                dx = 2;
+                dy = -2;
+                paddleX = (canvas.width - paddleWidth) / 2;
+            }
         }
     }
 
