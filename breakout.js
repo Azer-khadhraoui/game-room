@@ -136,7 +136,7 @@ function collisionDetection() {
                         score++;
                     }
                     b.status = 0; // Effacer la brique
-                    if (score == brickRowCount * brickColumnCount) {
+                    if (checkWin()) {
                         alert("YOU WIN, CONGRATULATIONS!");
                         document.location.reload();
                     }
@@ -144,6 +144,17 @@ function collisionDetection() {
             }
         }
     }
+}
+
+function checkWin() {
+    for (let c = 0; c < brickColumnCount; c++) {
+        for (let r = 0; r < brickRowCount; r++) {
+            if (bricks[c][r].status > 0) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 function drawScore() {
