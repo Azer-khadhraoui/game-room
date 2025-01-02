@@ -3,19 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salle de Jeux</title>
+    <title>Game Room</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .game-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .game-link {
+            background: rgba(83, 67, 67, 0.2);
+            padding: 20px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #0a0909;
+            font-size: 1.5em;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .game-link:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Game Room</h1>
-        <ul class="game-list">
-            <li><a href="tictactoe.php">Tic-Tac-Toe</a></li>
-            <li><a href="snake.php">Snake</a></li>
-            <li><a href="pong.html">Pong</a></li>
-            <li><a href="memory.html">Memory</a></li>
-            <li><a href="breakout.html">breakout</a></li>
-        </ul>
+        <h1>Welcome to the Game Room</h1>
+        <div class="game-links">
+            <a href="breakout.html" class="game-link">Breakout</a>
+            <a href="memory.html" class="game-link">Memory</a>
+            <a href="snake.php" class="game-link">Snake</a>
+            <a href="pong.html" class="game-link">Pong</a>
+            <a href="tictactoe.php" class="game-link">tic-tac-toe</a>
+        </div>
     </div>
 </body>
 </html>
