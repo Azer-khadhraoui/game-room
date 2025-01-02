@@ -11,8 +11,8 @@ let y = canvas.height - 30;
 let dx = 2;
 let dy = -2;
 
-const brickRowCount = 5; // Augmenter le nombre de lignes de briques
-const brickColumnCount = 9; // Augmenter le nombre de colonnes de briques
+const brickRowCount = 5;
+const brickColumnCount = 9;
 const brickWidth = 75;
 const brickHeight = 20;
 const brickPadding = 10;
@@ -30,6 +30,7 @@ for (let c = 0; c < brickColumnCount; c++) {
 let rightPressed = false;
 let leftPressed = false;
 let lives = 5;
+let score = 0;
 
 document.addEventListener('keydown', keyDownHandler);
 document.addEventListener('keyup', keyUpHandler);
@@ -92,10 +93,21 @@ function collisionDetection() {
                 if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
                     dy = -dy;
                     b.status = 0;
+                    score++;
+                    if (score == brickRowCount * brickColumnCount) {
+                        alert("YOU WIN, CONGRATULATIONS!");
+                        document.location.reload();
+                    }
                 }
             }
         }
     }
+}
+
+function drawScore() {
+    context.font = "16px Arial";
+    context.fillStyle = "#0095DD";
+    context.fillText("Score: " + score, 8, 20);
 }
 
 function drawLives() {
@@ -109,6 +121,7 @@ function draw() {
     drawBricks();
     drawBall();
     drawPaddle();
+    drawScore();
     drawLives();
     collisionDetection();
 
